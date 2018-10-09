@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--<springProperty scope="context" name="logfile.name"-->
+    <!--source="logfile.name"/>-->
+    <!--<springProperty scope="context" name="logfile.path"-->
+    <!--source="logfile.path"/>-->
+
+    <!-- ConsoleAppender：把日志输出到控制台 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p (%file:%line\)- %m%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 输入到logstash中 -->
+    <!--<appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+        <!--<param name="Encoding" value="UTF-8"/>-->
+        <!--<remoteHost>127.0.0.1</remoteHost>-->
+        <!--<port>4560</port>-->
+        <!--&lt;!&ndash; encoder is required &ndash;&gt;-->
+        <!--&lt;!&ndash;<encoder class="net.logstash.logback.encoder.LogstashEncoder" >&ndash;&gt;-->
+        <!--&lt;!&ndash;<customFields>{"appname":"web"}</customFields>&ndash;&gt;-->
+        <!--&lt;!&ndash;</encoder>&ndash;&gt;-->
+        <!--<encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">-->
+            <!--<providers>&lt;!&ndash; MDC variables on the Thread will be written as JSON fields&ndash;&gt;-->
+                <!--<mdc/>-->
+                <!--<context/> &lt;!&ndash;Outputs entries from logback's context &ndash;&gt;-->
+                <!--<logLevel/>-->
+                <!--<loggerName/>-->
+                <!--<pattern>-->
+                    <!--<pattern>-->
+                        <!--{-->
+                        <!--"appname": "api-write"-->
+                        <!--}-->
+                    <!--</pattern>-->
+                <!--</pattern>-->
+                <!--<threadName/>-->
+                <!--<message/>-->
+                <!--<logstashMarkers/> &lt;!&ndash; Useful so we can add extra information for specific log lines as Markers&ndash;&gt;-->
+                <!--<arguments/> &lt;!&ndash;or through StructuredArguments&ndash;&gt;-->
+                <!--<stackTrace>-->
+                    <!--<fieldName>stackTrace</fieldName>-->
+                    <!--<throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">-->
+                        <!--<exclude>net\.sf\.cglib\..*</exclude>-->
+                        <!--<rootCauseFirst>true</rootCauseFirst>-->
+                    <!--</throwableConverter>-->
+                <!--</stackTrace>-->
+            <!--</providers>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+    <!-- 控制台输出日志级别 -->
+    <root level="INFO">
+        <!--<appender-ref ref="logstash" />-->
+        <appender-ref ref="console" />
+    </root>
+</configuration>

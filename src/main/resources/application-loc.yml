@@ -1,0 +1,29 @@
+web:
+  upload-path: D:/
+server:
+  port: 8080
+spring:
+     datasource:
+          driver-class-name: com.mysql.jdbc.Driver
+          url:  jdbc:mysql://47.96.105.14:3306/forcer_dev?useSSL=true
+          username: root
+          password: np5gX2rYwy
+jpa:
+    show-sql: true
+redis:
+      host: localhost
+      password:
+      port: 6379
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        timeout: 5000
+
+#------------------微信公众平台参数   -----------
+# 微信APPID
+WX_MP_APPID: wx9671c47603acec04
+# 微信商户号
+MP_MCH_ID: 1499372782
+#微信公众平台密钥
+WX_MP_SECRET: 6a275b7fd2ee140b72c992638f11c3b4
